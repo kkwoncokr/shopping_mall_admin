@@ -9,6 +9,6 @@
       "react/jsx-props-no-spreading":0,
       "react/jsx-one-expression-per-line":0,
       "quotes":0,
-      "comma-dangle": ["error","never"]
+      "comma-dangle": 0
     }
   }
