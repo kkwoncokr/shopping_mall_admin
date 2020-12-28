@@ -20,8 +20,9 @@ const WhiteBox = styled.div`
     display: block;
     padding-bottom: 2rem;
     text-align: center;
+    font-size: 24px;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: -2px;
   }
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.025);
   padding: 2rem;
