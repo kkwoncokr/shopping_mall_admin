@@ -52,6 +52,7 @@ const AuthForm = ({ type }) => {
         <Form.Item
           name="email"
           type="email"
+          htmltype="email"
           rules={[
             {
               required: true,
@@ -103,6 +104,21 @@ const AuthForm = ({ type }) => {
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="비밀번호를 다시 입력하세요"
+              />
+            </Form.Item>
+            <Form.Item
+              name="nickname"
+              type="nickname"
+              rules={[
+                {
+                  required: true,
+                  message: "닉네임을 입력하세요",
+                },
+              ]}
+            >
+              <Input
+                prefix={<UserOutlined className="site-form-item-icon" />}
+                placeholder="닉네임"
               />
             </Form.Item>
           </>
