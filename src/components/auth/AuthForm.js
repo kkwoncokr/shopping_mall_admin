@@ -33,10 +33,7 @@ const textMap = {
   login: "로그인",
   register: "회원가입",
 };
-const AuthForm = ({ type }) => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
+const AuthForm = ({ type, onFinish }) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
@@ -52,7 +49,7 @@ const AuthForm = ({ type }) => {
         <Form.Item
           name="email"
           type="email"
-          htmltype="email"
+          htmlFor="email"
           rules={[
             {
               required: true,
