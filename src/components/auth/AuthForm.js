@@ -29,11 +29,17 @@ const Footer = styled.div`
     }
   }
 `;
+const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+`;
 const textMap = {
   login: "로그인",
   register: "회원가입",
 };
-const AuthForm = ({ type, onFinish }) => {
+const AuthForm = ({ type, onFinish, error }) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
@@ -129,6 +135,7 @@ const AuthForm = ({ type, onFinish }) => {
             {text}
           </Button>
         </Form.Item>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         <Footer>
           {type === "login" ? (
             <Link to="/register">회원가입</Link>

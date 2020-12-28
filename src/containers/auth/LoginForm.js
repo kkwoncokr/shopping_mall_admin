@@ -8,7 +8,7 @@ const LoginForm = ({ history }) => {
   const dispatch = useDispatch();
   const { auth } = useSelector((state) => state.authReducer);
   useEffect(() => {
-    if (auth.admin === false) {
+    if (auth.email && auth.admin === false) {
       alert("관리자에게 문의하세요");
     } else if (auth.email && auth.password) {
       history.push("/");
