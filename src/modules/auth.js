@@ -7,16 +7,24 @@ import createRequestSaga, {
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   "auth/LOGIN"
 );
-export const loginRequest = createAction(LOGIN, ({ email, password }) => ({
-  email,
-  password,
-}));
+export const loginRequest = createAction(
+  LOGIN,
+  ({ email, password, admin }) => ({
+    email,
+    password,
+    admin,
+  })
+);
 const loginSaga = createRequestSaga(LOGIN);
 export function* authSaga() {
   yield takeLatest(LOGIN, loginSaga);
 }
 const initialState = {
-  auth: null,
+  auth: {
+    email: "",
+    password: "",
+    admin: false,
+  },
   authError: null,
 };
 
