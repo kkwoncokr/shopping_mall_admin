@@ -1,5 +1,6 @@
 import React from "react";
+import MainContent from "../components/main/MainContent";
 
-const MainPage = () => <div>대시보드</div>;
+const MainPage = () => <MainContent />;
 
 export default MainPage;
