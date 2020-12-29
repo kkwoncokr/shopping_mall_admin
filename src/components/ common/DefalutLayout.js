@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, withRouter } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import {
@@ -12,11 +13,11 @@ import {
   InboxOutlined,
 } from "@ant-design/icons";
 
-const { Header, Sider } = Layout;
+const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
-const DefalutLayout = ({ children }) => {
-  const [collapsed, setCollapsed] = useState(false);
 
+const DefalutLayout = ({ children, location }) => {
+  const [collapsed, setCollapsed] = useState(false);
   const onToggle = () => {
     setCollapsed(!collapsed);
   };
@@ -24,25 +25,34 @@ const DefalutLayout = ({ children }) => {
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo">{collapsed ? <p>Luna</p> : <p>Luna,talk</p>}</div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["0"]}>
-          <Menu.Item key="0" icon={<PieChartOutlined />}>
-            대시보드
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["/"]}
+          selectedKeys={[location.pathname]}
+        >
+          <Menu.Item key="/" icon={<PieChartOutlined />}>
+            <Link to="/">대시보드</Link>
           </Menu.Item>
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            회원관리
+          <Menu.Item key="/user" icon={<UserOutlined />}>
+            <Link to="/user">회원관리</Link>
           </Menu.Item>
-          <Menu.Item key="2" icon={<InboxOutlined />}>
-            상품관리
+          <Menu.Item key="/product" icon={<InboxOutlined />}>
+            <Link to="/product">상품관리</Link>
           </Menu.Item>
-          <Menu.Item key="3" icon={<CreditCardFilled />}>
-            쿠폰관리
+          <Menu.Item key="/coupon" icon={<CreditCardFilled />}>
+            <Link to="/coupon">쿠폰관리</Link>
           </Menu.Item>
-          <Menu.Item key="4" icon={<CreditCardOutlined />}>
-            주문관리
+          <Menu.Item key="/purchase" icon={<CreditCardOutlined />}>
+            <Link to="/purchase">주문관리</Link>
           </Menu.Item>
           <SubMenu key="sub1" icon={<MessageOutlined />} title="게시판">
-            <Menu.Item key="5">공지사항</Menu.Item>
-            <Menu.Item key="6">고객센터</Menu.Item>
+            <Menu.Item key="/notice">
+              <Link to="/notice">공지사항</Link>
+            </Menu.Item>
+            <Menu.Item key="/support">
+              <Link to="/support">고객센터</Link>
+            </Menu.Item>
           </SubMenu>
         </Menu>
       </Sider>
@@ -56,7 +66,7 @@ const DefalutLayout = ({ children }) => {
             }
           )}
         </Header>
-        {/* <Content
+        <Content
           className="site-layout-background"
           style={{
             margin: "24px 16px",
@@ -64,12 +74,11 @@ const DefalutLayout = ({ children }) => {
             minHeight: "100vh",
           }}
         >
-          Content
-        </Content> */}
-        {children}
+          {children}
+        </Content>
       </Layout>
     </Layout>
   );
 };
 
-export default DefalutLayout;
+export default withRouter(DefalutLayout);

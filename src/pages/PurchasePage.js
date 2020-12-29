@@ -1,5 +1,6 @@
 import React from "react";
+import PurchaseContent from "../components/purchase/PurchaseContent";
 
-const PurchasePage = () => <div>구매페이지</div>;
+const PurchasePage = () => <PurchaseContent />;
 
 export default PurchasePage;

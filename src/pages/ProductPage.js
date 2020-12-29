@@ -1,5 +1,6 @@
 import React from "react";
+import ProductContent from "../components/product/ProductContent";
 
-const ProductPage = () => <div>상품페이지</div>;
+const ProductPage = () => <ProductContent />;
 
 export default ProductPage;
