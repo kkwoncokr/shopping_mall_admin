@@ -1,6 +1,6 @@
 import React from "react";
-import MainContent from "../components/main/MainContent";
+import MainContainer from "../containers/main/MainCantainer";
 
-const MainPage = () => <MainContent />;
+const MainPage = () => <MainContainer />;
 
 export default MainPage;
