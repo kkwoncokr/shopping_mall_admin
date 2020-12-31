@@ -1,6 +1,6 @@
 import React from "react";
-import UserContent from "../components/user/UserContent";
+import UserContainer from "../containers/user/UserContainer";
 
-const UserPage = () => <UserContent />;
+const UserPage = () => <UserContainer />;
 
 export default UserPage;
