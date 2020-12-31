@@ -7,6 +7,10 @@ const columns = [
     dataIndex: "number",
   },
   {
+    title: "이메일",
+    dataIndex: "email",
+  },
+  {
     title: "가입일",
     dataIndex: "join",
   },
@@ -14,21 +18,20 @@ const columns = [
     title: "이름",
     dataIndex: "name",
   },
-  {
-    title: "이메일",
-    dataIndex: "email",
-  },
+
   {
     title: "회원등급",
     dataIndex: "admin",
   },
 ];
-
+const date = new Date();
 const data = [
   {
     key: "1",
     number: 1,
-    join: new Date().toUTCString(),
+    join: `${date.getFullYear()}년 ${
+      date.getMonth() + 1
+    }월 ${date.getDate()}일`,
     name: "John Brown",
     email: "test@test.com",
     admin: "일반",
@@ -36,7 +39,9 @@ const data = [
   {
     key: "2",
     number: 2,
-    join: new Date().toUTCString(),
+    join: `${date.getFullYear()}년 ${
+      date.getMonth() + 1
+    }월 ${date.getDate()}일`,
     name: "Jim Green",
     email: "test2@test.com",
     admin: "일반",
@@ -44,7 +49,9 @@ const data = [
   {
     key: "3",
     number: 3,
-    join: new Date().toUTCString(),
+    join: `${date.getFullYear()}년 ${
+      date.getMonth() + 1
+    }월 ${date.getDate()}일`,
     name: "Joe Black",
     email: "test3@test.com",
     admin: "일반",
@@ -52,7 +59,9 @@ const data = [
   {
     key: "4",
     number: 4,
-    join: new Date().toUTCString(),
+    join: `${date.getFullYear()}년 ${
+      date.getMonth() + 1
+    }월 ${date.getDate()}일`,
     name: "Joe1 Black",
     email: "test4@test.com",
     admin: "관리자",
