@@ -11,8 +11,7 @@ const UserContent = ({ onSearch, filterData, columns }) => (
       onSearch={onSearch}
       style={{ width: "100%", marginBottom: 20 }}
     />
-
-    <Table columns={columns} dataSource={filterData} />
+    <Table columns={columns} dataSource={filterData || null} />
   </DefalutLayout>
 );
 

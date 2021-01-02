@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import UserContent from "../../components/user/UserContent";
+import { userListRequest } from "../../modules/user";
 
 const columns = [
   {
@@ -25,66 +26,21 @@ const columns = [
     dataIndex: "admin",
   },
 ];
-// const date = new Date();
-// const data = [
-//   {
-//     key: "1",
-//     number: 1,
-//     join: `${date.getFullYear()}년 ${
-//       date.getMonth() + 1
-//     }월 ${date.getDate()}일`,
-//     name: "John Brown",
-//     email: "test@test.com",
-//     admin: "일반",
-//   },
-//   {
-//     key: "2",
-//     number: 2,
-//     join: `${date.getFullYear()}년 ${
-//       date.getMonth() + 1
-//     }월 ${date.getDate()}일`,
-//     name: "Jim Green",
-//     email: "test2@test.com",
-//     admin: "일반",
-//   },
-//   {
-//     key: "3",
-//     number: 3,
-//     join: `${date.getFullYear()}년 ${
-//       date.getMonth() + 1
-//     }월 ${date.getDate()}일`,
-//     name: "Joe Black",
-//     email: "test3@test.com",
-//     admin: "일반",
-//   },
-//   {
-//     key: "4",
-//     number: 4,
-//     join: `${date.getFullYear()}년 ${
-//       date.getMonth() + 1
-//     }월 ${date.getDate()}일`,
-//     name: "Joe1 Black",
-//     email: "test4@test.com",
-//     admin: "관리자",
-//   },
-// ];
 
 const UserContainer = () => {
   const { user } = useSelector((state) => state.user);
-  console.log(user);
-  const [inputData, setInputData] = useState(user);
-  const [filterData, setFilterData] = useState(user);
+  const [inputData, setInputData] = useState("");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(userListRequest());
+  }, [dispatch]);
+
   const onSearch = (value) => {
-    setInputData(user);
-    const filterDatas = inputData.filter((v) => v.email.includes(value));
-    setFilterData(filterDatas);
+    const filteruser = user;
+    setInputData(filteruser.filter((v) => v.email.includes(value)));
   };
   return (
-    <UserContent
-      filterData={filterData}
-      onSearch={onSearch}
-      columns={columns}
-    />
+    <UserContent filterData={inputData} onSearch={onSearch} columns={columns} />
   );
 };
 

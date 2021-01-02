@@ -1,4 +1,4 @@
-import { put } from "redux-saga/effects";
+import { delay, put } from "redux-saga/effects";
 
 export const createRequestActionTypes = (type) => {
   const SUCCESS = `${type}_SUCCESS`;
@@ -12,8 +12,8 @@ export default function createRequestSaga(type, request) {
     // console.debug(request);
 
     try {
-      // yield delay(1000);
       action = request;
+      yield delay(1000);
       // const response = yield call(request, action.payload);
       yield put({
         type: SUCCESS,
