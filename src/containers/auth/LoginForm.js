@@ -16,7 +16,7 @@ const LoginForm = ({ history }) => {
   }, [history, auth]);
   const onFinish = (values) => {
     const { email, password } = values;
-    dispatch(loginRequest({ email, password, admin: auth.admin }));
+    dispatch(loginRequest({ email, password, admin: true }));
   };
   return <AuthForm type="login" onFinish={onFinish} />;
 };

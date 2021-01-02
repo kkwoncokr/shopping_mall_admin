@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Button, Avatar } from "antd";
 import "antd/dist/antd.css";
 import {
   MenuUnfoldOutlined,
@@ -12,14 +12,22 @@ import {
   CreditCardOutlined,
   InboxOutlined,
 } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../modules/auth";
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-const DefalutLayout = ({ children, location }) => {
+const DefalutLayout = ({ children, location, history }) => {
+  const dispatch = useDispatch();
+  const { auth } = useSelector((state) => state.authReducer);
   const [collapsed, setCollapsed] = useState(false);
   const onToggle = () => {
     setCollapsed(!collapsed);
+  };
+  const onLogout = () => {
+    dispatch(logout());
+    history.push("/login");
   };
   return (
     <Layout>
@@ -65,6 +73,18 @@ const DefalutLayout = ({ children, location }) => {
               onClick: onToggle,
             }
           )}
+          {auth ? (
+            <>
+              <span style={{ marginRight: "10px" }}>
+                <Avatar style={{ backgroundColor: "#1890ff" }}>
+                  {auth.email.charAt(0)}
+                </Avatar>
+              </span>
+              <Button type="primary" onClick={onLogout}>
+                로그아웃
+              </Button>
+            </>
+          ) : null}
         </Header>
         <Content
           className="site-layout-background"

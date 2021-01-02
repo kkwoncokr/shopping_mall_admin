@@ -10,7 +10,6 @@ const [
   USER_LIST_SUCCESS,
   USER_LIST_FAILURE,
 ] = createRequestActionTypes("user/LIST_USER");
-
 export const userListRequest = createAction(USER_LIST);
 
 const userListSaga = createRequestSaga(USER_LIST, data);
@@ -19,8 +18,8 @@ export function* userSaga() {
 }
 
 const initialState = {
-  user: "null",
-  userError: "null",
+  user: null,
+  userError: null,
 };
 
 const authReducer = handleActions(

@@ -10,6 +10,8 @@ const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
 const [REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE] = createRequestActionTypes(
   "auth/REGISTER"
 );
+const LOGOUT = "user/LOGOUT";
+
 export const loginRequest = createAction(
   LOGIN,
   ({ email, password, admin }) => ({
@@ -27,6 +29,8 @@ export const registerRequest = createAction(
     admin,
   })
 );
+export const logout = createAction(LOGOUT);
+
 const loginSaga = createRequestSaga(LOGIN);
 const registerSaga = createRequestSaga(REGISTER);
 export function* authSaga() {
@@ -37,7 +41,7 @@ const initialState = {
   auth: {
     email: "",
     password: "",
-    admin: false,
+    admin: "",
   },
   register: {
     email: "",
@@ -66,6 +70,14 @@ const authReducer = handleActions(
     [REGISTER_FAILURE]: (state, { payload: error }) => ({
       ...state,
       authError: error,
+    }),
+    [LOGOUT]: (state) => ({
+      ...state,
+      auth: {
+        email: "",
+        password: "",
+        admin: "",
+      },
     }),
   },
   initialState

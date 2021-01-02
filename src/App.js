@@ -1,5 +1,6 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Switch, withRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
 import NoticePage from "./pages/NoticePage";
@@ -10,18 +11,25 @@ import SupportPage from "./pages/SupportPage";
 import CouponPage from "./pages/CouponPage";
 import UserPage from "./pages/UserPage";
 
-const App = () => (
-  <Switch>
-    <Route component={MainPage} path="/" exact />
-    <Route component={LoginPage} path="/login" />
-    <Route component={RegisterPage} path="/register" />
-    <Route component={ProductPage} path="/product" />
-    <Route component={CouponPage} path="/coupon" />
-    <Route component={UserPage} path="/user" />
-    <Route component={NoticePage} path="/notice" />
-    <Route component={SupportPage} path="/support" />
-    <Route component={PurchasePage} path="/Purchase" />
-  </Switch>
-);
-
-export default App;
+const App = ({ history }) => {
+  const { auth } = useSelector((state) => state.authReducer);
+  useEffect(() => {
+    if (auth.email === "") {
+      history.push("/login");
+    }
+  }, [auth]);
+  return (
+    <Switch>
+      <Route component={MainPage} path="/" exact />
+      <Route component={LoginPage} path="/login" />
+      <Route component={RegisterPage} path="/register" />
+      <Route component={ProductPage} path="/product" />
+      <Route component={CouponPage} path="/coupon" />
+      <Route component={UserPage} path="/user" />
+      <Route component={NoticePage} path="/notice" />
+      <Route component={SupportPage} path="/support" />
+      <Route component={PurchasePage} path="/Purchase" />
+    </Switch>
+  );
+};
+export default withRouter(App);
