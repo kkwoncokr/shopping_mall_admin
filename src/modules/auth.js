@@ -2,7 +2,7 @@ import { createAction, handleActions } from "redux-actions";
 import { takeLatest } from "redux-saga/effects";
 import createRequestSaga, {
   createRequestActionTypes,
-} from "../lib/createRequestSaga";
+} from "../lib/createRequestSaga_2";
 
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes(
   "auth/LOGIN"
