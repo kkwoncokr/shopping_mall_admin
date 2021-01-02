@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage";
 import SupportPage from "./pages/SupportPage";
 import CouponPage from "./pages/CouponPage";
 import UserPage from "./pages/UserPage";
+import UserDetailContainer from "./containers/user/UserDetailContainer";
 
 const App = ({ history }) => {
   const { auth } = useSelector((state) => state.authReducer);
@@ -26,6 +27,7 @@ const App = ({ history }) => {
       <Route component={ProductPage} path="/product" />
       <Route component={CouponPage} path="/coupon" />
       <Route component={UserPage} path="/user" />
+      <Route component={UserDetailContainer} path="/user@check" />
       <Route component={NoticePage} path="/notice" />
       <Route component={SupportPage} path="/support" />
       <Route component={PurchasePage} path="/Purchase" />

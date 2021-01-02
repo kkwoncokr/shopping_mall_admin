@@ -9,6 +9,8 @@ const data = [
     name: "John Brown",
     email: "test@test.com",
     admin: "일반",
+    address: "경기도 부천시 오정구 원종동",
+    phone: "01020202020",
   },
   {
     key: "2",
@@ -19,6 +21,8 @@ const data = [
     name: "Jim Green",
     email: "test2@test.com",
     admin: "일반",
+    address: "경기도 부천시 오정구 원종동",
+    phone: "01020202020",
   },
   {
     key: "3",
@@ -29,6 +33,8 @@ const data = [
     name: "Joe Black",
     email: "test3@test.com",
     admin: "일반",
+    address: "경기도 부천시 오정구 원종동",
+    phone: "01020202020",
   },
   {
     key: "4",
@@ -39,6 +45,8 @@ const data = [
     name: "Joe1 Black",
     email: "test4@test.com",
     admin: "관리자",
+    address: "경기도 부천시 오정구 원종동",
+    phone: "01020202020",
   },
 ];
 
