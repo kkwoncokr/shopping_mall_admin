@@ -18,7 +18,7 @@ const App = ({ history }) => {
     if (auth.email === "") {
       history.push("/login");
     }
-  }, [auth]);
+  }, [auth, history]);
   return (
     <Switch>
       <Route component={MainPage} path="/" exact />
@@ -27,7 +27,7 @@ const App = ({ history }) => {
       <Route component={ProductPage} path="/product" />
       <Route component={CouponPage} path="/coupon" />
       <Route component={UserPage} path="/user" />
-      <Route component={UserDetailContainer} path="/user@check" />
+      <Route component={UserDetailContainer} path="/user=:email" />
       <Route component={NoticePage} path="/notice" />
       <Route component={SupportPage} path="/support" />
       <Route component={PurchasePage} path="/Purchase" />

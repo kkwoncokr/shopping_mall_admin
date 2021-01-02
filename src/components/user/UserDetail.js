@@ -18,7 +18,7 @@ const UserDetail = ({ user }) => {
         <Descriptions.Item label="가입일자">{user.join}</Descriptions.Item>
         <Descriptions.Item label="휴대폰번호">{user.phone}</Descriptions.Item>
         <Descriptions.Item label="주소" span={3}>
-          {user.adrress}
+          {user.address}
         </Descriptions.Item>
         <Descriptions.Item label="특이사항">내용</Descriptions.Item>
       </Descriptions>

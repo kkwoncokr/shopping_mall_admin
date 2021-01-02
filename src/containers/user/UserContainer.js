@@ -20,7 +20,7 @@ const UserContainer = () => {
     {
       title: "이메일",
       dataIndex: "email",
-      render: (text) => <Link to="/user@check">{text}</Link>,
+      render: (text) => <Link to={`/user=${text}`}>{text}</Link>,
     },
     {
       title: "가입일",
