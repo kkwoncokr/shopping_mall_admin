@@ -14,7 +14,7 @@ const ContentBlock = styled.article`
 const MainContent = ({ data }) => (
   <DefalutLayout>
     <ContentBlock>
-      <table>
+      <table className="mainTable">
         <thead>
           <tr>
             <th>입금전</th>

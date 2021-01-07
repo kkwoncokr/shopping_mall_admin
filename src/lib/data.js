@@ -11,6 +11,7 @@ const data = [
     admin: "일반",
     address: "경기도 부천시 오정구 원종동",
     phone: "01020202020",
+    content: "",
     order: [
       {
         key: "order_1",
@@ -31,6 +32,7 @@ const data = [
     admin: "일반",
     address: "경기도 부천시 오정구 원종동",
     phone: "01020202020",
+    content: "",
   },
   {
     key: "3",
@@ -43,6 +45,7 @@ const data = [
     admin: "일반",
     address: "경기도 부천시 오정구 원종동",
     phone: "01020202020",
+    content: "",
   },
   {
     key: "4",
@@ -55,6 +58,7 @@ const data = [
     admin: "관리자",
     address: "경기도 부천시 오정구 원종동",
     phone: "01020202020",
+    content: "",
   },
 ];
 
