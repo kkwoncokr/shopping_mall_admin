@@ -1,10 +1,33 @@
 import React from "react";
-import { Descriptions, Tabs } from "antd";
+import { Descriptions, Tabs, Table, Button } from "antd";
 import DefalutLayout from "../ common/DefalutLayout";
 
 const { TabPane } = Tabs;
 
 const UserDetail = ({ user }) => {
+  const columns = [
+    {
+      title: "상품명",
+      dataIndex: "productName",
+      key: "productName",
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: "갯수",
+      dataIndex: "count",
+      key: "count",
+    },
+    {
+      title: "배송상태",
+      dataIndex: "delivery",
+      key: "delivery",
+    },
+    {
+      title: "결제취소",
+      key: "action",
+      render: () => <Button type="primary">결제취소</Button>,
+    },
+  ];
   const callback = (key) => {
     console.log(key);
   };
@@ -24,7 +47,7 @@ const UserDetail = ({ user }) => {
       </Descriptions>
       <Tabs defaultActiveKey="1" onChange={callback}>
         <TabPane tab="주문목록" key="1">
-          Content of Tab Pane 1
+          <Table columns={columns} dataSource={user.order} />
         </TabPane>
       </Tabs>
     </DefalutLayout>

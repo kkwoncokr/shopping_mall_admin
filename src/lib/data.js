@@ -11,6 +11,14 @@ const data = [
     admin: "일반",
     address: "경기도 부천시 오정구 원종동",
     phone: "01020202020",
+    order: [
+      {
+        key: "order_1",
+        productName: "한과",
+        count: "2",
+        delivery: "배송중",
+      },
+    ],
   },
   {
     key: "2",
