@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import UserContent from "../../components/user/UserContent";
-import { userListRequest } from "../../modules/user";
+import { usersListRequest } from "../../modules/user";
 
 const UserContainer = () => {
-  const { user } = useSelector((state) => state.user);
+  const { users } = useSelector((state) => state.user);
   const [inputData, setInputData] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(userListRequest());
+    dispatch(usersListRequest());
   }, [dispatch]);
-
   const columns = [
     {
       title: "회원번호",
@@ -37,7 +36,7 @@ const UserContainer = () => {
     },
   ];
   const onSearch = (value) => {
-    const filteruser = user;
+    const filteruser = users;
     setInputData(filteruser.filter((v) => v.email.includes(value)));
   };
   return (
